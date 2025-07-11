@@ -7,12 +7,14 @@ export class LoginPage {
     readonly emailInput: Locator;
     readonly passwordInput: Locator;
     readonly loginButton: Locator;
+    readonly registerButton: Locator;
 
     constructor(page: Page) {
         this.page = page;
         this.emailInput = page.getByPlaceholder('Informe seu e-mail');
         this.passwordInput = page.getByPlaceholder('Informe sua senha');
         this.loginButton = page.getByRole('button', { name: 'Acessar' });
+        this.registerButton = page.getByRole('button', { name: 'Registrar' });
     }
 
     async fillEmail(email: string) {
@@ -24,6 +26,10 @@ export class LoginPage {
     }
 
     async clickLoginButton() {
+        await this.loginButton.click();
+    }
+
+    async clickRegisterButton() {
         await this.loginButton.click();
     }
 
