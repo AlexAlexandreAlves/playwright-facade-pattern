@@ -11,8 +11,8 @@ export class LoginPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.emailInput = page.getByPlaceholder('Informe seu e-mail');
-        this.passwordInput = page.getByPlaceholder('Informe sua senha');
+        this.emailInput = page.locator('form').filter({ hasText: 'E-mailSenhaAcessarRegistrarConheça nossos requisitosA aplicação não conta com' }).getByPlaceholder('Informe seu e-mail');
+        this.passwordInput = page.locator('form').filter({ hasText: 'E-mailSenhaAcessarRegistrarConheça nossos requisitosA aplicação não conta com' }).getByPlaceholder('Informe sua senha');
         this.loginButton = page.getByRole('button', { name: 'Acessar' });
         this.registerButton = page.getByRole('button', { name: 'Registrar' });
     }
@@ -30,7 +30,7 @@ export class LoginPage {
     }
 
     async clickRegisterButton() {
-        await this.loginButton.click();
+        await this.registerButton.click();
     }
 
 }

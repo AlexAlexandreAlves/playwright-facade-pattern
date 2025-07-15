@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { expect, Page } from '@playwright/test';
 import { LoginPage } from '../pages/login-page';
 import { RegisterPage } from '../pages/register-page';
 
@@ -6,7 +6,6 @@ export class RegisterFacade {
     constructor(private page: Page) { }
 
     async registerAs(email: string, name: string, password: string, confirmationPassword: string) {
-
         const loginPage = new LoginPage(this.page);
         const registerPage = new RegisterPage(this.page);
 
@@ -18,7 +17,11 @@ export class RegisterFacade {
         await registerPage.clickRegisterButton();
     }
 
-    // async registerConfiration() {
-    //     const registerPage = new RegisterPage(this.page);
-    // }
+    async registerConfirmation() {
+        const registerPage = new RegisterPage(this.page);
+
+        await expect(registerPage.confirmationMessage).toBeVisible();
+        await expect(registerPage.confirmationIcon).toBeVisible();
+        await registerPage.closeButton.click();
+    }
 }

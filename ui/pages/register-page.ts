@@ -16,14 +16,14 @@ export class RegisterPage {
 
     constructor(page: Page) {
         this.page = page;
-        this.emailRegisterInput = page.locator('form').filter({ hasText: 'Voltar ao loginE-mailÉ campo' }).getByPlaceholder('Informe seu e-mail');
+        this.emailRegisterInput = page.locator('form').filter({ hasText: 'Voltar ao loginE-' }).getByPlaceholder('Informe seu e-mail');
         this.nameRegisterInput = page.getByRole('textbox', { name: 'Informe seu Nome' });
-        this.passwordRegisterInput = page.locator('form').filter({ hasText: 'Voltar ao loginE-mailÉ campo' }).getByPlaceholder('Informe sua senha');
+        this.passwordRegisterInput = page.locator('form').filter({ hasText: 'Voltar ao loginE-' }).getByPlaceholder('Informe sua senha');
         this.passwordConfirmationRegisterInput = page.getByRole('textbox', { name: 'Informe a confirmação da senha' });
         this.accountWithOrWithoutBalanceToggle = page.locator('div').filter({ hasText: /^Criar conta com saldo \?$/ }).locator('span');
         this.registerButton = page.getByRole('button', { name: 'Cadastrar' });
-        this.confirmationMessage = page.getByText('A conta 329-0 foi criada com');
-        this.confirmationIcon = page.locator('div').filter({ hasText: /^A conta 329-0 foi criada com sucessoFechar$/ }).getByRole('img');
+        this.confirmationMessage = page.getByText(/A conta \d+-\d+ foi criada com/);;
+        this.confirmationIcon = page.locator('div').filter({ hasText: /^A conta \d+-\d+ foi criada com sucessoFechar$/ }).getByRole('img');
         this.closeButton = page.getByText('Fechar');
     }
 
