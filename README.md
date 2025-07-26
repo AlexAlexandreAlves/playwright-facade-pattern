@@ -1,4 +1,4 @@
-# Test Automation Facade Pattern
+# Facade Pattern
 
 This project is an automated test suite using [Playwright](https://playwright.dev/) to validate authentication and registration flows in a web application. The project adopts the **Facade Pattern** to organize and simplify page interactions, making tests more readable, reusable, and easy to maintain.
 
